@@ -18,10 +18,12 @@
   import { previewFiles, setObjectFormData } from "$lib/tools";
   import type { Admin, ListResult, Record } from "pocketbase";
   import GalleryPage from "../GalleryPage.svelte";
+  import AlbumSvelteSelect from "../inputs/AlbumSvelteSelect.svelte";
   // import Selecte from "svelecte";
 
   export let data: {
     arts: ListResult<Record> | null;
+    list_albums: Record[];
     user: Record | Admin | null;
     company: Record;
     error: any;
@@ -38,19 +40,6 @@
   let created = false;
   let addError: any = null;
 
-  let replace_store = {
-    colors: [],
-    material: [],
-    price: 100,
-    category: "",
-    discount: 0,
-    name: "",
-    photos: [],
-    company_id: "RELATION_RECORD_ID",
-    added_by_user_id: "RELATION_RECORD_ID",
-    available: "true",
-    description: "",
-  };
   let fileInput: any;
   async function addProductData() {
     loading = true;
@@ -79,7 +68,7 @@
         caption: "What a day.",
         artist: "",
         album_id: "",
-        private: 'true',
+        private: "true",
         images: [],
       };
       input_images.set(replaceDT);
@@ -107,6 +96,14 @@
   function removeImage(index: number) {
     images = images.filter((_, i) => i !== index);
     files = files.filter((_, i) => i !== index);
+  }
+  let album_value = $input_images?.album_id;
+  function itemChange(params: string) {
+    album_value = params;
+    input_images?.update((vals) => {
+      vals.album_id = params;
+      return vals;
+    });
   }
 </script>
 
@@ -139,6 +136,12 @@
     All the fields are required.
   </p>
 
+  <AlbumSvelteSelect
+    {itemChange}
+    items={data?.list_albums}
+    value={album_value}
+    user={data?.user}
+  />
   <p class="mb-4 font-semibold text-gray-900 dark:text-white">
     <Label for="name" class="mb-2">Caption:</Label>
     <Input bind:value={$input_images.caption} placeholder="Master Image" />

@@ -10,6 +10,7 @@
     arts: ListResult<Record> | null;
     user: Record | Admin | null;
     company: Record;
+    list_albums: Record[];
     error: any;
   };
   function updateData(dt: any) {
