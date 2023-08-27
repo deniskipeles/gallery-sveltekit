@@ -10,19 +10,18 @@
   export let caption;
   export let image;
   export let key;
+  export let updateData;
 
   async function removeImage() {
-    const data = {
-      "photos-": image?.photos[key],
-    };
-
     try {
-      console.log(data);
+      const photos = [];
+      photos.push(image?.photos[key]);
+      // console.log(image?.id,photos);
       let record = await pb.collection("arts").update(image?.id, {
-        "photos-": [image?.photos[key]],
+        "photos-": photos,
       });
       record = serializeNonPOJOs(record);
-      image = record;
+      await updateData(record);
     } catch (error) {
       console.log(error);
     }

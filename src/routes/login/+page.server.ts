@@ -1,6 +1,4 @@
 import { currentUser } from '$lib/pocketbase';
-import { bookHostelFxn } from '$lib/server';
-import { bookingFormData } from '$lib/stores';
 import { serializeNonPOJOs } from '$lib/tools';
 import { redirect } from '@sveltejs/kit'
 import type { Actions } from './$types'

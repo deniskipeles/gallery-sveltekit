@@ -6,6 +6,8 @@
   import { getPbImageUrl } from "$lib/tools";
   import AddArt from "$lib/components/art/AddArt.svelte";
   import { goto } from "$app/navigation";
+  import AddMoreArt from "$lib/components/art/AddMoreArt.svelte";
+  import { page } from "$app/stores";
   /** @type {import('./$types').PageData} */
   export let data: {
     arts: Record | null;
@@ -13,11 +15,14 @@
     company: Record;
     error: any;
   };
-  function updateData(dt: any) {
-    data = dt;
+
+  async function updateData(dt: any) {
+    if (data?.arts) {
+      data.arts = dt
+    }
   }
   function goBack(dt: any) {
-    history.back()
+    history.back();
   }
 </script>
 
@@ -25,6 +30,7 @@
   <BreadcrumbItem href="/" home>Home</BreadcrumbItem>
 </Breadcrumb>
 <Button pill on:click={goBack}>Go Back</Button>
+<AddMoreArt {updateData} art_id={$page?.params?.art_id} />
 <!-- <AddArt {updateData} {data} /> -->
 {#if data?.arts}
   <!-- content here -->
@@ -35,6 +41,7 @@
         caption={data?.arts?.caption}
         image={data?.arts}
         {key}
+        {updateData}
       />
     {/each}
   </div>

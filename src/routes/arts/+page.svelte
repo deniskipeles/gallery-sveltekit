@@ -31,6 +31,7 @@
         caption={image.caption}
         {image}
         key={0}
+        updateData={()=>{}}
       />
     {/each}
   </div>

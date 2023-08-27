@@ -13,7 +13,18 @@
     error: any;
   };
   function goBack() {
-    history.back()
+    history.back();
+  }
+
+  function updateData(dt: any) {
+    let arrdt = data?.arts?.items?.map((obj: any) => {
+      if (dt?.id == obj?.id) {
+        return dt;
+      } else {
+        return obj;
+      }
+    });
+    // data.arts.items = arrdt;
   }
 </script>
 
@@ -31,6 +42,7 @@
         caption={image.caption}
         {image}
         key={0}
+        {updateData}
       />
     {/each}
   </div>
