@@ -20,6 +20,23 @@ export const loadAlbums = async (url: URL) => {
     return resultList;
 };
 
+export const loadViewAlbums = async (url: URL) => {
+    const filter = `photos_count != "null"`;
+    let items_per_page = url.searchParams.get("items_per_page") ?? 30;
+    items_per_page = Number(items_per_page);
+    let page = url.searchParams.get("page") ?? 1;
+    page = Number(page);
+    // fetch a paginated records list
+    let resultList = await pb
+        .collection("view_albums")
+        .getList(page, items_per_page, {
+            filter,
+            sort: "-created",
+            expand: "artist",
+        });
+    resultList = serializeNonPOJOs(resultList);
+    return resultList;
+};
 
 export const loadArtistAlbums = async (artist: Record | Admin | null) => {
     const filter = `artist = "${artist?.id}"`;
@@ -47,10 +64,21 @@ export const updateAlbum = async (id: string, data: any) => {
     return record;
 };
 
-export const loadSingleAlbum = async (id: string) => {
-    let record = await pb.collection("albums").getOne(id, {
-        expand: "artist",
+
+export const loadSingleAlbum = async (album_id: string,url:URL) => {
+    const filter = `album_id = "${album_id}"`;
+  let items_per_page = url.searchParams.get("items_per_page") ?? 30;
+  items_per_page = Number(items_per_page);
+  let page = url.searchParams.get("page") ?? 1;
+  page = Number(page);
+  // fetch a paginated records list
+  let resultList = await pb
+    .collection("arts")
+    .getList(page, items_per_page, {
+      filter,
+      sort: "-created",
+      expand: "artist",
     });
-    record = serializeNonPOJOs(record);
-    return record;
+  resultList = serializeNonPOJOs(resultList);
+  return resultList;
 };

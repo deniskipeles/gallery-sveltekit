@@ -5,18 +5,14 @@
   import ErrorComp from "$lib/components/ErrorComp.svelte";
   import { getPbImageUrl } from "$lib/tools";
   import AddArt from "$lib/components/art/AddArt.svelte";
-  import { goto } from "$app/navigation";
   /** @type {import('./$types').PageData} */
   export let data: {
-    arts: Record | null;
+    arts: ListResult<Record> | null;
     user: Record | Admin | null;
     company: Record;
     error: any;
   };
-  function updateData(dt: any) {
-    data = dt;
-  }
-  function goBack(dt: any) {
+  function goBack() {
     history.back()
   }
 </script>
@@ -24,17 +20,17 @@
 <Breadcrumb class="pt-20 py-8">
   <BreadcrumbItem href="/" home>Home</BreadcrumbItem>
 </Breadcrumb>
-<Button pill on:click={goBack}>Go Back</Button>
 <!-- <AddArt {updateData} {data} /> -->
-{#if data?.arts}
+<Button pill on:click={goBack}>Go Back</Button>
+{#if data?.arts?.items}
   <!-- content here -->
   <div class="gap-4 grid-cols-2 grid">
-    {#each data?.arts?.photos as image, key}
+    {#each data?.arts?.items as image (image.id)}
       <GalleryItem
-        imageUrl={getPbImageUrl(data?.arts, image, "200x0")}
-        caption={data?.arts?.caption}
-        image={data?.arts}
-        {key}
+        imageUrl={getPbImageUrl(image, image?.photos[0], "200x0")}
+        caption={image.caption}
+        {image}
+        key={0}
       />
     {/each}
   </div>

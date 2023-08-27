@@ -9,8 +9,8 @@
   let dropDownsData: any = [];
   let noDropDownsData = [
     {
-      label: "Add Art",
-      url: "/add-art",
+      label: "Albums",
+      url: "/albums",
     },
     {
       label: "Arts",

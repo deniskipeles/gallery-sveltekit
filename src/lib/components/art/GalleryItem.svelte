@@ -3,12 +3,30 @@
   import { page } from "$app/stores";
   import { pb } from "$lib/pocketbase";
   import { img_to_view_data, img_to_view_url, open_model } from "$lib/stores";
+  import { serializeNonPOJOs } from "$lib/tools";
   import ImageModal from "./ImageModal.svelte";
 
   export let imageUrl;
   export let caption;
   export let image;
   export let key;
+
+  async function removeImage() {
+    const data = {
+      "photos-": image?.photos[key],
+    };
+
+    try {
+      console.log(data);
+      let record = await pb.collection("arts").update(image?.id, {
+        "photos-": [image?.photos[key]],
+      });
+      record = serializeNonPOJOs(record);
+      image = record;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   function openModal() {
     if (
@@ -43,6 +61,11 @@
     on:click={openModal}
     class="cursor-pointer h-auto w-full rounded-lg"
   />
+  {#if $page?.url?.pathname?.startsWith("/arts/")}
+    <!-- content here -->
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="remove-button" on:click={removeImage}>X</div>
+  {/if}
   <div
     class="absolute bottom-0 bg-black bg-opacity-50 w-full p-2 text-white text-center"
   >
@@ -50,3 +73,21 @@
   </div>
   <ImageModal {closeModal} />
 </div>
+
+<style>
+  .remove-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 4px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .remove-button:hover {
+    background-color: rgb(241, 52, 52);
+  }
+</style>

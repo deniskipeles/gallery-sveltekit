@@ -114,6 +114,7 @@
       }
     } catch (e) {
       error = e;
+      uploading = false;
     }
   };
   const setFile = async (event: any) => {
@@ -173,7 +174,13 @@
 
     <Card padding="sm">
       <!-- svelte-ignore a11y-missing-attribute -->
-      <img src={$photo} />
+      <a
+        href={$photo?.replace("100x100", "0x0")}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img class="h-full w-full" src={$photo} />
+      </a>
       <Label for="fileInput" class="pb-2 text-xs font-thin"
         >{photo ? "Update Your Image" : "Upload Your Image"}</Label
       >

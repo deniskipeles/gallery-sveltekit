@@ -1,8 +1,8 @@
 // import { pb } from "$lib/pocketbase";
 import { loadCompany } from "./base";
-import { loadPersonnel } from "./artist";
-import { createArt, loadArts, updateArt, loadSingleArt } from "./art";
-import { createAlbum, loadAlbums, loadArtistAlbums, loadSingleAlbum, updateAlbum } from "./albums";
+import { loadArtists, loadPersonnel } from "./artist";
+import { createArt, loadArts, updateArt, loadSingleArt, loadFirtsArt } from "./art";
+import { createAlbum, loadAlbums, loadArtistAlbums, loadSingleAlbum, loadViewAlbums, updateAlbum } from "./albums";
 
 export {
     loadCompany,
@@ -16,4 +16,7 @@ export {
     createAlbum, 
     loadArtistAlbums,
     updateAlbum,
+    loadFirtsArt,
+    loadViewAlbums,
+    loadArtists,
 }

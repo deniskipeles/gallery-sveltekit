@@ -40,16 +40,13 @@ export const loadSingleArt = async (id: string) => {
   return record;
 };
 
-// export async function loadArticleReviews(
-//   pb: import("pocketbase").default,
-//   article_id: string
-// ) {
-//   // console.log(hostel)
-//   let record = await pb.collection("retrieve_article_reviews").getList(1, 50, {
-//     sort: "-created",
-//     filter: `article_id = "${article_id}"`,
-//   });
 
-//   record = serializeNonPOJOs(record);
-//   return record;
-// }
+
+export const loadFirtsArt = async () => {
+  // or fetch only the first record that matches the specified filter
+  let record = await pb.collection('arts').getFirstListItem('', {
+    // expand: 'relField1,relField2.subRelField',
+  });
+  record = serializeNonPOJOs(record);
+  return record;
+};

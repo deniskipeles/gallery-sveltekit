@@ -138,7 +138,7 @@
     </div>
 
     <SidebarWrapper>
-      <SidebarGroup>
+      <!-- <SidebarGroup>
         <SidebarItem
           href={`/ai`}
           label={`Ask AI`}
@@ -146,7 +146,7 @@
           on:click={toggleSide}
           active={activeUrl === `/ai`}
         />
-      </SidebarGroup>
+      </SidebarGroup> -->
         
         <ClientSideBar {activeUrl} {spanClass} {toggleSide} />
       
