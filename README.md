@@ -1,8 +1,8 @@
 
-```markdown
+
 # Open Source Gallery Project Web App
 
-This project is an open-source gallery web application that utilizes Pocketbase as the backend and SvelteKit as the frontend framework. The app allows users to showcase images and organize them into various galleries.
+This project is an open-source gallery web application that utilizes **Pocketbase** as the backend and **SvelteKit** as the frontend framework. The app allows users to showcase images and organize them into various galleries.
 
 ## Demo
 
@@ -10,31 +10,31 @@ You can access the demo of the project at [test.com](https://gallery-sveltekit.v
 
 ## Backend - Pocketbase
 
-Pocketbase is used as the backend for this project. The database schema can be downloaded from [schema.com](https://github.com/deniskipeles/gallery-sveltekit/src/lib/pb_schema.json). To host the backend, you can use [pockethost.io](https://pockethost.io) for free.
+**Pocketbase** is used as the backend for this project. The database schema can be downloaded from [schema.com](https://github.com/deniskipeles/gallery-sveltekit/src/lib/pb_schema.json). To host the backend, you can use [pockethost.io](https://pockethost.io) for free.
 
 ## Frontend - SvelteKit
 
-The frontend of the project is built using SvelteKit, a modern web framework for building user interfaces. You can fork the frontend repository from [github.com/deniskipeles/gallery-sveltekit.git](https://github.com/deniskipeles/gallery-sveltekit.git).
+The frontend of the project is built using **SvelteKit**, a modern web framework for building user interfaces. You can fork the frontend repository from [github.com/deniskipeles/gallery-sveltekit.git](https://github.com/deniskipeles/gallery-sveltekit.git).
 
 ### Getting Started
 
 1. Clone the repository:
-   ```
+   ```sh
    git clone https://github.com/deniskipeles/gallery-sveltekit.git
    ```
 
 2. Navigate to the project directory:
-   ```
+   ```sh
    cd gallery-sveltekit
    ```
 
 3. Install the dependencies:
-   ```
+   ```sh
    npm install
    ```
 
 4. Run the project locally:
-   ```
+   ```sh
    npm run dev
    ```
 
@@ -55,4 +55,4 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 **Note:** This Markdown file is for informational purposes and does not include actual code. Please refer to the provided URLs and repositories for the actual code and resources.
-```
+
