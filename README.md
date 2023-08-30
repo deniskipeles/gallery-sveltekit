@@ -1,38 +1,58 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+```markdown
+# Open Source Gallery Project Web App
 
-## Creating a project
+This project is an open-source gallery web application that utilizes Pocketbase as the backend and SvelteKit as the frontend framework. The app allows users to showcase images and organize them into various galleries.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Demo
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+You can access the demo of the project at [test.com](https://gallery-sveltekit.vercel.app).
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Backend - Pocketbase
+
+Pocketbase is used as the backend for this project. The database schema can be downloaded from [schema.com](https://github.com/deniskipeles/gallery-sveltekit/src/lib/pb_schema.json). To host the backend, you can use [pockethost.io](https://pockethost.io) for free.
+
+## Frontend - SvelteKit
+
+The frontend of the project is built using SvelteKit, a modern web framework for building user interfaces. You can fork the frontend repository from [github.com/deniskipeles/gallery-sveltekit.git](https://github.com/deniskipeles/gallery-sveltekit.git).
+
+### Getting Started
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/deniskipeles/gallery-sveltekit.git
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd gallery-sveltekit
+   ```
+
+3. Install the dependencies:
+   ```
+   npm install
+   ```
+
+4. Run the project locally:
+   ```
+   npm run dev
+   ```
+
+5. Access the app in your browser at `http://localhost:3000`.
+
+### Hosting
+
+You can host the project for free on [Vercel](https://vercel.com). Vercel offers seamless deployment and hosting for SvelteKit applications.
+
+## Contribution
+
+Contributions to this open-source project are welcome. If you encounter issues or have ideas for improvements, feel free to submit a pull request to the repository.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+**Note:** This Markdown file is for informational purposes and does not include actual code. Please refer to the provided URLs and repositories for the actual code and resources.
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
