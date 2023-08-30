@@ -6,15 +6,15 @@ This project is an open-source gallery web application that utilizes **Pocketbas
 
 ## Demo
 
-You can access the demo of the project at [test.com](https://gallery-sveltekit.vercel.app).
+You can access the demo of the project at [demo app](https://gallery-sveltekit.vercel.app).
 
 ## Backend - Pocketbase
 
-**Pocketbase** is used as the backend for this project. The database schema can be downloaded from [schema.com](https://github.com/deniskipeles/gallery-sveltekit/blob/main/src/lib/pb_schema.json). To host the backend, you can use [pockethost.io](https://pockethost.io) for free.
+**Pocketbase** is used as the backend for this project. The database schema can be downloaded from [db json schema](https://github.com/deniskipeles/gallery-sveltekit/blob/main/src/lib/pb_schema.json). To host the backend, you can use [pockethost.io](https://pockethost.io) for free.
 
 ## Frontend - SvelteKit
 
-The frontend of the project is built using **SvelteKit**, a modern web framework for building user interfaces. You can fork the frontend repository from [github.com/deniskipeles/gallery-sveltekit.git](https://github.com/deniskipeles/gallery-sveltekit.git).
+The frontend of the project is built using **SvelteKit**, a modern web framework for building user interfaces. You can fork the frontend repository from [here](https://github.com/deniskipeles/gallery-sveltekit.git).
 
 ### Getting Started
 
@@ -42,7 +42,7 @@ The frontend of the project is built using **SvelteKit**, a modern web framework
 
 ### Hosting
 
-You can host the project for free on [Vercel](https://vercel.com). Vercel offers seamless deployment and hosting for SvelteKit applications.
+You can host the project for free on [Vercel services](https://vercel.com). Vercel offers seamless deployment and hosting for SvelteKit applications.
 
 ## Contribution
 
