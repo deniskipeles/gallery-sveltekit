@@ -10,7 +10,7 @@ You can access the demo of the project at [test.com](https://gallery-sveltekit.v
 
 ## Backend - Pocketbase
 
-**Pocketbase** is used as the backend for this project. The database schema can be downloaded from [schema.com](https://github.com/deniskipeles/gallery-sveltekit/src/lib/pb_schema.json). To host the backend, you can use [pockethost.io](https://pockethost.io) for free.
+**Pocketbase** is used as the backend for this project. The database schema can be downloaded from [schema.com](https://github.com/deniskipeles/gallery-sveltekit/blob/main/src/lib/pb_schema.json). To host the backend, you can use [pockethost.io](https://pockethost.io) for free.
 
 ## Frontend - SvelteKit
 
