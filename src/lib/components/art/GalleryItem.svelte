@@ -40,13 +40,13 @@
           })
         : "/images/img1.jpg";
       img_to_view_url.set(img);
-      open_model.set(true);
+      // open_model.set(true);
       img_to_view_data.set(image);
     }
   }
 
   function closeModal() {
-    img_to_view_url.set("");
+    // img_to_view_url.set("");
     open_model.set(false);
     img_to_view_data.set({});
   }
